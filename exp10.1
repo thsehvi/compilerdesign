@@ -1,0 +1,22 @@
+%{
+/* No header file needed beacuse we return raw ASCII characters */
+%}
+
+%%
+
+a       { return 'a'; }
+b       { return 'b'; }
+c       { return 'c'; }
+d       { return 'd'; }
+\n      { return '\n'; }
+
+[ \t]   ;   /* ignore whitespace */
+
+.       { return yytext[0]; }
+
+%%
+
+int yywrap(void)
+{
+    return 1;
+}
